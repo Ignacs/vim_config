@@ -1,0 +1,12 @@
+
+" color setting
+colorscheme molokai 
+" vimdifff use different color setting
+if &diff
+    " colorscheme evening
+    " colorscheme mourning
+    " colorscheme SerialExperimentsLain
+    " colorscheme shadesofamber
+    " colorscheme ibmedit
+    "colorscheme bluish
+ endif
