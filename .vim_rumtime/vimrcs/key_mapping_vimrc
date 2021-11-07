@@ -118,3 +118,77 @@ inoremap @t <><esc>i
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+" map <F11> //* <C-R>=strftime("%Y-%m-%d")<BAR><CR><C-R>
+" map <C-F11> i <C-R>=strftime("20%y%m%d %H:%M:%S")<BAR><CR>
+
+" switch between header/source with F4
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+" recreate tags file with F5
+"map <F5> :!ctags -R ¡Vc++-kinds=+p ¡Vfields=+iaS ¡Vextra=+q .<CR>
+map <F5> :!ctags -R<CR>
+
+" complex :iab <expr> dd strftime("[%e-%b-%Y %H:%M]")
+" " command to insert date and time
+" in Insert mode 
+" 	d+d+(space / enter)
+inoreabbrev com /*<CR><CR>/<Up>
+inoreabbrev <expr> dd strftime("%Y/%m/%d")
+inoreabbrev <expr> tt strftime("%H:%M:%S")
+inoreabbrev <expr> tt strftime("%H:%M:%S")
+" semi-auto add comment  command
+" insert mode : c+c+s+(space / enter)
+inoreabbrev <expr> ccl strftime("// ignacs-%Y%m%d-RM#####-topic-")
+inoreabbrev <expr> cc strftime("// ignacs-%Y%m%d-RM#")
+" inoreabbrev <expr> cas strftime("// ignacs-%Y%m%d-RM#####-topic")
+" inoreabbrev <expr> cae // add end, Ignacs Wu,
+inoreabbrev <expr> cr strftime("// ignacs-%Y%m%d-RM#####-remove-")
+" inoreabbrev <expr> crs "// remove start, Ignacs Wu,"
+" inoreabbrev <expr> cre "// remove end, Ignacs Wu,"
+inoreabbrev <expr> cm strftime("// ignacs-%Y%m%d-RM#####-modify-")
+" inoreabbrev <expr> cms "// modify start, Ignacs Wu,"
+" inoreabbrev <expr> cme "// modify end, Ignacs Wu,"
+inoreabbrev <expr> cf  strftime("// ignacs-%Y%m%d-RM#####-fixed-")
+" inoreabbrev <expr> cfs "// fixed start, Ignacs Wu,"
+" inoreabbrev <expr> cfe "// fixed end, Ignacs Wu,"
+inoreabbrev iff if ()<left>
+
+" move around tabs. conflict with the original screen top/bottom
+" comment them out if you want the original H/L
+" go to prev tab
+"map <S-H> gT
+" go to next tab
+"map <S-L> gt
+
+" ,/ turn off search highlighting
+" nmap <leader>/ :nohl<CR>
+
+" ,g generates the header guard
+map <leader>g :call IncludeGuard()<CR>
+fun! IncludeGuard()
+   let basename = substitute(bufname(""), '.*/', '', '')
+   let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
+   call append(0, "#ifndef " . guard)
+   call append(1, "#define " . guard)
+   call append( line("$"), "#endif // for #ifndef " . guard)
+endfun
+
+" " complex :iab <expr> dd strftime("[%e-%b-%Y %H:%M]")
+" " command to insert date and time
+" " in Insert mode : d+d+(space / enter)
+" :iab <expr> dd strftime("%Y/%m/%d")
+" :iab <expr> tt strftime("%H:%M:%S")
+" " semi-auto add comment  command
+" " in Insert mode : c+c+s+(space / enter)
+" :iab <expr> ca "// add, Ignacs Wu,"
+" :iab <expr> cas "// add start, Ignacs Wu,"
+" :iab <expr> cae "// add end, Ignacs Wu,"
+" :iab <expr> cr "// remove, Ignacs Wu,"
+" :iab <expr> crs "// remove start, Ignacs Wu,"
+" :iab <expr> cre "// remove end, Ignacs Wu,"
+" :iab <expr> cm "// modify, Ignacs Wu,"
+" :iab <expr> cms "// modify start, Ignacs Wu,"
+" :iab <expr> cme "// modify end, Ignacs Wu,"
+" :iab <expr> cf  "// fixed, Ignacs Wu,"
+" :iab <expr> cfs "// fixed start, Ignacs Wu,"
+" :iab <expr> cfe "// fixed end, Ignacs Wu,"
+
