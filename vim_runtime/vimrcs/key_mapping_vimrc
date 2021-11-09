@@ -2,6 +2,10 @@
 "-------------------------------------------------------------------------------
 "  some additional hot keys
 "-------------------------------------------------------------------------------
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
 "    F2   -  write file without confirmation
 "    F3   -  call file explorer Ex
 "    F4   -  show tag under curser in the preview window (tagfile must exist!)

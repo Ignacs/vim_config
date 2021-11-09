@@ -1,12 +1,9 @@
-
 "===================================================================================
 " GENERAL SETTINGS
 "===================================================================================
 
-" if autochdir not work 
-autocmd BufEnter * silent! lcd %:p:h
-
 filetype off                  " required
+
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
 if has("autocmd")
@@ -19,6 +16,8 @@ set ai
 
 " change current working directory automatically
 " set autochdir
+" if autochdir not work 
+autocmd BufEnter * silent! lcd %:p:h
 
 " read open files again when changed outside Vim
 " set autoread                    
@@ -26,10 +25,6 @@ set ai
 
 " Automatically save before commands like :next and :make
 set autowrite        
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
 
 " backspacing over everything in insert mode
 set backspace=indent,eol,start  
@@ -54,8 +49,6 @@ set cf
 "     copy whole line to system's clipboard
 set clipboard=unnamed
 
-" Height of the command bar
-set cmdheight=1
 
 " scan the files given with the 'dictionary' option
 set complete+=k                 
@@ -63,11 +56,10 @@ set complete+=k
 " confirmation before execute commands.
 set confirm      
 
-
 " highlight cursorline cterm=NONE ctermbg=7
 set cursorline
-" Remove underline of cursorline
-hi Cursorline cterm=NONE ctermbg=8 ctermfg=17 guibg=#771c1c 
+" Modify background color of Cursorline, remove the underline of cursorline
+hi Cursorline cterm=NONE ctermbg=16 ctermfg=17 guibg=#771c1c 
 
 " Highlight the screen column of the cursor with CursorColumn
 set cursorcolumn
@@ -80,19 +72,23 @@ set directory=.,./.backup,/tmp
 " Replace Tab with space
 " set expandtab
 
-" config file for 'vi' not 
+" config file for 'vi' 
 " set exrc
 
 " set fenc=big-5
+"
+" set tenc=big-5
+
+" 'foldmethod'
 set fdm=indent
 
+" 'foldcolumn'
 " When non-zero, a column with the specified width is shown at the side
 " 	of the window which indicates open and closed folds.
 set fdc=6
 
-
 " How many tenths of a second to blink when matching brackets
-" set mat=2
+" set match=2
 
 " Use mouse only in Normal and visual modes, i.e. cancel mouse in Insert mode.
 " set mouse=nv 
@@ -109,8 +105,14 @@ set noeb
 set noerrorbells
 set novisualbell
 
-" show line number 
-set nu
+" No annoying sound on errors
+set t_vb=
+set tm=500
+
+" visual bell instead of beeping
+" set visualbell                  
+
+
 " Hide buffers when they are abandoned
 "set hidden             
 
@@ -167,12 +169,18 @@ set foldlevel=99
 " List of items that control the format of the output of |:hardcopy|.
 set popt=left:8pc,right:3pc     
 
+" show line number 
+set nu
+
 " relative line number
 set relativenumber
 
-
 " show the cursor position all the time
 " set ruler                       
+"
+" Read Ex commands from {file} in each directory given
+" by 'runtimepath' and/or 'packpath'.  There is no error
+" for non-existing files.
 set ru  
 
 " Keep 3 line in both page top and bottom 
@@ -190,7 +198,8 @@ set showcmd
 " When a bracket is inserted, briefly jump to the matching one.
 set showmatch
 
-"Smart indet
+"Smart indent
+" #if #define , for c preprocessor line
 set si 					
 
 " Do smart case matching
@@ -207,15 +216,6 @@ set t_Co=256
 
 " number of spaces that a <Tab> counts for
 set tabstop=4		
-
-" set tenc=big-5
-
-" No annoying sound on errors
-set t_vb=
-set tm=500
-
-" visual bell instead of beeping
-" set visualbell                  
 
 " Allow specified keys that move the cursor left/right to move to the
 " previous/next line when the cursor is on the first/last character in
@@ -240,8 +240,6 @@ if has("syntax")
   syntax on
 endif
 
-" Remap VIM 0 to first non-blank character
-map 0 ^
 
 " Automatically create .backup directory, writable by the group.
 if filewritable(".") && ! filewritable(".backup")
@@ -261,15 +259,4 @@ if has("autocmd")
     autocmd BufWritePre *.c,*.h,*.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
-
-" Remove trailing whitespace when writing a buffer, but not for diff files.
-"" From: Vigil
-" function RemoveTrailingWhitespace()
-"      let b:curcol = col(¡§.")
-"      let b:curline = line(¡§.")
-"      silent! %s/s+$//
-"      silent! %s/(s*n)+%$//
-"      call cursor(b:curline, b:curcol)
-" endfunction
-" autocmd BufWritePre * call RemoveTrailingWhitespace()
 

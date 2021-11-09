@@ -1,3 +1,5 @@
+" Height of the command bar
+set cmdheight=1
 
 " Format the statusline
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
