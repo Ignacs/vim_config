@@ -54,3 +54,8 @@ filetype plugin indent on     " Required!
 
 " Installation check.
 NeoBundleCheck
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+""" GTAGS
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let Gtags_Auto_Map = 1

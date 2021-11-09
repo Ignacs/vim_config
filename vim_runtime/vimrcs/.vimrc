@@ -5,6 +5,8 @@ source ~/.vim/vimrcs/key_mapping_vimrc
 source ~/.vim/vimrcs/plugins_vimrc
 source ~/.vim/vimrcs/visual_mode_vimrc
 source ~/.vim/vimrcs/color_vimrc
+source ~/.vim/plugins/gtags.vim
+source ~/.vim/plugins/gtags-cscope.vim
 
 
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
