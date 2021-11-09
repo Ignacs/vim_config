@@ -176,12 +176,10 @@ set nu
 set relativenumber
 
 " show the cursor position all the time
+" {not available when compiled without the
+" |+cmdline_info| feature}
 " set ruler                       
-"
-" Read Ex commands from {file} in each directory given
-" by 'runtimepath' and/or 'packpath'.  There is no error
-" for non-existing files.
-set ru  
+" set ru  
 
 " Keep 3 line in both page top and bottom 
 set scrolloff=3

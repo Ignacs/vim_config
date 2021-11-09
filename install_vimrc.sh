@@ -1,19 +1,15 @@
 #!/bin/sh
 set -e
 
-VIMRCS=~/vim_runtime/vimrcs
+PACK_VIMRCS=./vim_runtime/vimrcs
 
-cat $VIMRCS/.vimrc >> ~/.vimrc
+cat $PACK_VIMRCS/.vimrc > ~/.vimrc
 # make sure
 vi ~/.vimrc
 
 # copy vimrcs
-mkdir -p ~/.vim/vimrcs/
-cp $VIMRCS/* ~/.vim/vimrcs/
+VIMRC=~/.vim/vimrcs/
+mkdir -p $VIMRC
+cp $PACK_VIMRCS/* $VIMRC/
 
-# plugin management
-mkdir -p ~/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-
-ehco "Execute :NeoBundleInstall(!) in vim to install plugins"
 

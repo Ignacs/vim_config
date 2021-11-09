@@ -1,10 +1,10 @@
 
-source ~/.vim/general_vimrc
-source ~/.vim/status_line_vimrc
-source ~/.vim/key_mapping_vimrc
-source ~/.vim/plugins_vimrc
-source ~/.vim/visual_mode_vimrc
-source ~/.vim/color_vimrc
+source ~/.vim/vimrcs/general_vimrc
+source ~/.vim/vimrcs/status_line_vimrc
+source ~/.vim/vimrcs/key_mapping_vimrc
+source ~/.vim/vimrcs/plugins_vimrc
+source ~/.vim/vimrcs/visual_mode_vimrc
+source ~/.vim/vimrcs/color_vimrc
 
 
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just

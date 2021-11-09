@@ -1,86 +1,34 @@
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" set the runtime path to include Vundle and initialize
-"" Brief help
-"" :PluginList       - lists configured plugins
-"" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-"" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-"" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-""
-"" see :h vundle for more details or wiki for FAQ
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Put your non-Plugin stuff after this line
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-"" alternatively, pass a path where Vundle should install plugins
-""call vundle#begin('~/some/path/here')
-"
-"" let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim'
-"
-"" add all your plugins here (note older versions of Vundle
-"" used Bundle instead of Plugin)
-""
-"" Plugin 'Valloric/YouCompleteMe'
-"
-"" You can have VIM check your syntax on each save with the syntastic extension:
-"Plugin 'vim-syntastic/syntastic'
-"
-"" Also add PEP 8 checking with this nifty little plugin:
-"Plugin 'nvie/vim-flake8'
-"
-"" If you want a proper file tree, then NERDTree is the way to go:
-"Plugin 'scrooloose/nerdtree'
-"
-"" Want to search for basically anything from VIM? Check out ctrlP:
-"Plugin 'kien/ctrlp.vim'
-"
-"" Want to perform basic git commands without leaving the comfort of VIM? Then vim-fugitive is the way to go:
-"Plugin 'tpope/vim-fugitive'
-"
-"" Color scheme 
-"Plugin 'tomasr/molokai'
-"
-"" ...
-"" All of your Plugins must be added before the following line
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"call vundle#end()            " required
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-"" python3 support
-"" au BufNewFile,BufRead *.py  set softtabstop=4  set textwidth=79  set fileformat=unix
-"" set expandtab
-"
-"" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-"" let python_highlight_all=1
-"
-""python with virtualenv support
-""py << EOF
-""import os
-""import sys
-""if 'VIRTUAL_ENV' in os.environ:
-""  project_base_dir = os.environ['VIRTUAL_ENV']
-""  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-""  execfile(activate_this, dict(__file__=activate_this))
-""EOF
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neobundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let iCanHazNeoBundle=1
+let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+	echo "Installing NeoBundle.."
+	echo ""
+	silent !mkdir -p ~/.vim/bundle
+	silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+	let iCanHazNeoBundle=0
+	ehco "Execute :NeoBundleInstall(!) in vim to install plugins"
+endif
 
 if has('vim_starting')
 	set nocompatible               " Be iMproved
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
+
 " Recommended to install
 " After install,  turn shell ~/.vim/bundle/vimproc,  (n, g)make -f
 "    your_machines_makefile
 NeoBundle 'Shougo/vimproc'
+
 " My Bundles here:
 "
 " Note: You don't set neobundle setting in .gvimrc!
@@ -92,13 +40,17 @@ NeoBundle 'Shougo/vimproc'
 "  the plugins path is 'scrooloose/nerdtree'
 NeoBundle  'scrooloose/nerdtree'
 
+
+""" end """
+call neobundle#end()
+
 filetype plugin indent on     " Required!
 "
 " Brief help
 " :NeoBundleList          - list configured bundles
 " :NeoBundleInstall(!)    - install(update) bundles
 " :NeoBundleClean(!)      - confirm(or auto-approve) removal of
-unused bundles
+" unused bundles
 
 " Installation check.
 NeoBundleCheck
