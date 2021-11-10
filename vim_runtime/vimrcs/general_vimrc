@@ -2,13 +2,6 @@
 " GENERAL SETTINGS
 "===================================================================================
 
-filetype off                  " required
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-if has("autocmd")
-    filetype indent plugin on
-endif
 
 " copy indent from current line
 " set autoindent                  
@@ -74,8 +67,6 @@ set directory=.,./.backup,/tmp
 
 " config file for 'vi' 
 " set exrc
-
-" set fenc=big-5
 "
 " set tenc=big-5
 

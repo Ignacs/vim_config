@@ -38,7 +38,13 @@ NeoBundle 'Shougo/vimproc'
 
 "  EX:  plugins nerdtree https://github.com/scrooloose/nerdtree 
 "  the plugins path is 'scrooloose/nerdtree'
-NeoBundle  'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
+
+" NeoBundle 'skywind3000/quickmenu.vim'
+NeoBundle 'skywind3000/vim-preview'
+NeoBundle 'ludovicchabant/vim-gutentags'
+NeoBundle 'skywind3000/gutentags_plus'
+NeoBundle 'ycm-core/YouCompleteMe'
 
 
 """ end """
@@ -59,3 +65,28 @@ NeoBundleCheck
 """ GTAGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let Gtags_Auto_Map = 1
+
+
+"-------------------------------------------------------------------------------
+" taglist.vim : toggle the taglist window
+" taglist.vim : define the title texts for make
+" taglist.vim : define the title texts for qmake
+"-------------------------------------------------------------------------------
+" noremap <silent> <F9>  <Esc><Esc>:Tlist<CR>
+"inoremap <silent> <F9>  <Esc><Esc>:Tlist<CR>
+
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Close_On_Select 				= 1
+
+let tlist_make_settings  = 'make;v:variables;t:targets;i:includes'
+let tlist_qmake_settings = 'qmake;t:SystemVariables'
+
+" if has("autocmd")
+"   " ----------  qmake : set filetype for *.pro  ----------
+"   autocmd BufNewFile,BufRead *.pro  set filetype=qmake
+" endif " has("autocmd")
+
+
+
+
+

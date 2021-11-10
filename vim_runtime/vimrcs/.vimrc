@@ -5,6 +5,8 @@ source ~/.vim/vimrcs/key_mapping_vimrc
 source ~/.vim/vimrcs/plugins_vimrc
 source ~/.vim/vimrcs/visual_mode_vimrc
 source ~/.vim/vimrcs/color_vimrc
+source ~/.vim/vimrcs/file_type_vimrc
+
 source ~/.vim/plugins/gtags.vim
 source ~/.vim/plugins/gtags-cscope.vim
 
@@ -107,42 +109,3 @@ endif
 "iabbrev text1 text2
 
   
-"-------------------------------------------------------------------------------
-" taglist.vim : toggle the taglist window
-" taglist.vim : define the title texts for make
-" taglist.vim : define the title texts for qmake
-"-------------------------------------------------------------------------------
-" noremap <silent> <F9>  <Esc><Esc>:Tlist<CR>
-"inoremap <silent> <F9>  <Esc><Esc>:Tlist<CR>
-
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Close_On_Select 				= 1
-
-let tlist_make_settings  = 'make;v:variables;t:targets;i:includes'
-let tlist_qmake_settings = 'qmake;t:SystemVariables'
-
-" if has("autocmd")
-"   " ----------  qmake : set filetype for *.pro  ----------
-"   autocmd BufNewFile,BufRead *.pro  set filetype=qmake
-" endif " has("autocmd")
-
-
-
-"map  <F12> :r! date +\%s<cr>
-nmap <F12> <Plug>CscopeDBInit
-
-
-" for CJK language
-if has("multi_byte")
-	set encoding=utf-8
-	setglobal fileencoding=big5
-	set fileencoding=big5
-	set bomb
-	set termencoding=utf-8
-	set fileencodings=ucs-bom,big5,utf-8,latin1
-	set guifont=-misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
-	set guifontwide=-misc-fixed-medium-r-normal-*-18-120-100-100-c-180-iso10646-1
-else
-	echoerr "Sorry, this version of (g)vim was not compiled with multi_byte"
-endif
-

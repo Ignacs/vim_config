@@ -196,3 +196,5 @@ endfun
 " :iab <expr> cfs "// fixed start, Ignacs Wu,"
 " :iab <expr> cfe "// fixed end, Ignacs Wu,"
 
+" map  <F12> :r! date +\%s<cr>
+" nmap <F12> <Plug>CscopeDBInit
