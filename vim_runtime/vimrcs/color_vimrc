@@ -6,8 +6,6 @@
 " turn on this option as well
 set background=dark
 
-source ~/.vim/color/molokai.vim
-
 " color setting
 colorscheme molokai 
 " vimdifff use different color setting
