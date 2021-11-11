@@ -20,7 +20,7 @@ cp $VIM_PLUGINS/* $RT_PLUGINS/
 
 
 # copy colors
-RT_COLOR=~/.vim/color/
+RT_COLOR=~/.vim/colors/
 mkdir -p $RT_COLOR
 VIM_COLORS=./vim_runtime/colors
 cp $VIM_COLORS/* $RT_COLOR/
