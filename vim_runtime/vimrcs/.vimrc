@@ -6,9 +6,8 @@ source ~/.vim/vimrcs/plugins_vimrc
 source ~/.vim/vimrcs/visual_mode_vimrc
 source ~/.vim/vimrcs/color_vimrc
 source ~/.vim/vimrcs/file_type_vimrc
+source ~/.vim/vimrcs/scope_vimrc
 
-source ~/.vim/plugins/gtags.vim
-source ~/.vim/plugins/gtags-cscope.vim
 
 
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
@@ -73,39 +72,3 @@ if has("autocmd")
 endif
 
 
-" set diff color scheme
-" /usr/share/vim/vim72/syntax/diff.vim
-"hi diffAdded ctermfg=Green ctermbg=DarkGray guifg=Green
-"hi diffRemoved ctermfg=Red ctermbg=DarkGray guifg=Red
-
-" set color of comment 
-"highlight Comment ctermfg=cyan
-
-
-
-
-
-" auto load cscope
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=0 "use cscope as default tag
-    set cst
-    set nocsverb
-	" there is a built-in plugin: cscope_map.vim 
-	" " add any database in current directory
-    " " add in cscope_maps.plugins
-    " if filereadable("cscope.out")
-    "     cs add cscope.out
-    " " else add database pointed to by environment
-    " elseif $CSCOPE_DB != ""
-    "     cs add $CSCOPE_DB
-    " endif
-    set csverb
-    set cscopetag
-    set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
-endif
-
-" replace tesxt1 with text2
-"iabbrev text1 text2
-
-  

@@ -17,3 +17,19 @@ if &diff
     " colorscheme ibmedit
     " colorscheme bluish
  endif
+
+" set diff color scheme
+" /usr/share/vim/vim72/syntax/diff.vim
+"hi diffAdded ctermfg=Green ctermbg=DarkGray guifg=Green
+"hi diffRemoved ctermfg=Red ctermbg=DarkGray guifg=Red
+
+" set color of comment 
+"highlight Comment ctermfg=cyan
+
+
+
+
+
+
+
+  

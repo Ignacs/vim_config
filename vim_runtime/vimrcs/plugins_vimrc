@@ -93,8 +93,8 @@ Plug 'skywind3000/vim-preview'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'ycm-core/YouCompleteMe'
+" gtags and gtags-cscope
 Plug 'aceofall/gtags.vim'
-Plug 'multilobyte/gtags-cscope'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -104,18 +104,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " end of vim-plug 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""
-""" GTAGS
-""""""""""""""""""""""""""""""""""""""""""""""""""
-let Gtags_Auto_Map = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-""" GTAGS cscope
-""""""""""""""""""""""""""""""""""""""""""""""""""
-let GtagsCscope_Auto_Map = 1
-let GtagsCscope_Ignore_Case = 1
-let GtagsCscope_Keep_Alive = 1
-let GtagsCscope_Auto_load = 1
 
 
 "-------------------------------------------------------------------------------

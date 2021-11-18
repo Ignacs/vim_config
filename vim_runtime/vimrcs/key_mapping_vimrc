@@ -198,3 +198,6 @@ endfun
 
 " map  <F12> :r! date +\%s<cr>
 " nmap <F12> <Plug>CscopeDBInit
+"
+" replace tesxt1 with text2
+"iabbrev text1 text2
