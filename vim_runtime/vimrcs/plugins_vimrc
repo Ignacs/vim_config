@@ -91,10 +91,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree',  { 'on':  'NERDTreeToggle' }
 Plug 'skywind3000/vim-preview'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+" Plug 'skywind3000/gutentags_plus'
 Plug 'ycm-core/YouCompleteMe'
-" gtags and gtags-cscope
-Plug 'aceofall/gtags.vim'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
