@@ -2,69 +2,120 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neobundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let iCanHazNeoBundle=1
-let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-	echo "Installing NeoBundle.."
+" let iCanHazNeoBundle=1
+" let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+" if !filereadable(neobundle_readme)
+" 	echo "Installing NeoBundle.."
+" 	echo ""
+" 	silent !mkdir -p ~/.vim/bundle
+" 	silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+" 	let iCanHazNeoBundle=0
+" 	ehco "Execute :NeoBundleInstall(!) in vim to install plugins"
+" endif
+" 
+" if has('vim_starting')
+" 	set nocompatible               " Be iMproved
+" 	set runtimepath+=~/.vim/bundle/neobundle.vim/
+" endif
+" 
+" 
+" call neobundle#begin(expand('~/.vim/bundle/'))
+" 
+" " Let NeoBundle manage NeoBundle
+" NeoBundleFetch 'Shougo/neobundle.vim'
+" 
+" " Recommended to install
+" " After install,  turn shell ~/.vim/bundle/vimproc,  (n, g)make -f
+" "    your_machines_makefile
+" NeoBundle 'Shougo/vimproc'
+
+
+" 
+" 
+" " My Bundles here:
+" "
+" " Note: You don't set neobundle setting in .gvimrc!
+" " Original repos on github
+" 
+" " -> Add plugins path here <-
+" 
+" "  EX:  plugins nerdtree https://github.com/scrooloose/nerdtree 
+" "  the plugins path is 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
+" 
+" " NeoBundle 'skywind3000/quickmenu.vim'
+" NeoBundle 'skywind3000/vim-preview'
+" NeoBundle 'ludovicchabant/vim-gutentags'
+" NeoBundle 'skywind3000/gutentags_plus'
+" NeoBundle 'ycm-core/YouCompleteMe'
+" NeoBundle 'aceofall/gtags.vim'
+" NeoBundle 'multilobyte/gtags-cscope'
+"   
+" 
+" 
+" """ end """
+" call neobundle#end()
+" 
+" filetype plugin indent on     " Required!
+" "
+" " Brief help
+" " :NeoBundleList          - list configured bundles
+" " :NeoBundleInstall(!)    - install(update) bundles
+" " :NeoBundleClean(!)      - confirm(or auto-approve) removal of
+" " unused bundles
+" 
+" " Installation check.
+" NeoBundleCheck
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" end of neobundle
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-plug 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let iCanHazVimPlug=1
+let vim_plug_readme=expand('~/.vim/autoload/plug.vim')
+if !filereadable(vim_plug_readme)
+	echo "Installing vim-plug.."
 	echo ""
-	silent !mkdir -p ~/.vim/bundle
-	silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-	let iCanHazNeoBundle=0
+	silent !mkdir -p ~/.vim/autoload
+	silent !git clone https://github.com/junegunn/vim-plug ~/.vim/autoload
+	let iCanHazVimPlug=0
 	ehco "Execute :NeoBundleInstall(!) in vim to install plugins"
 endif
 
-if has('vim_starting')
-	set nocompatible               " Be iMproved
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/nerdtree',  { 'on':  'NERDTreeToggle' }
+Plug 'skywind3000/vim-preview'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'aceofall/gtags.vim'
+Plug 'multilobyte/gtags-cscope'
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" end of vim-plug
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Recommended to install
-" After install,  turn shell ~/.vim/bundle/vimproc,  (n, g)make -f
-"    your_machines_makefile
-NeoBundle 'Shougo/vimproc'
-
-" My Bundles here:
-"
-" Note: You don't set neobundle setting in .gvimrc!
-" Original repos on github
-
-" -> Add plugins path here <-
-
-"  EX:  plugins nerdtree https://github.com/scrooloose/nerdtree 
-"  the plugins path is 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdtree'
-
-" NeoBundle 'skywind3000/quickmenu.vim'
-NeoBundle 'skywind3000/vim-preview'
-NeoBundle 'ludovicchabant/vim-gutentags'
-NeoBundle 'skywind3000/gutentags_plus'
-NeoBundle 'ycm-core/YouCompleteMe'
-
-
-""" end """
-call neobundle#end()
-
-filetype plugin indent on     " Required!
-"
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of
-" unused bundles
-
-" Installation check.
-NeoBundleCheck
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" end of vim-plug 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ GTAGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let Gtags_Auto_Map = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+""" GTAGS cscope
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Ignore_Case = 1
+let GtagsCscope_Keep_Alive = 1
+let GtagsCscope_Auto_load = 1
 
 
 "-------------------------------------------------------------------------------
