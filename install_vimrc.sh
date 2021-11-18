@@ -10,11 +10,11 @@ VIMRC=~/.vim/vimrcs/
 mkdir -p $VIMRC
 cp $PACK_VIMRCS/* $VIMRC/
 
-# copy plugins
-RT_PLUGINS=~/.vim/plugins/
-VIM_PLUGINS=./vim_runtime/plugins
-mkdir -p $RT_PLUGINS
-cp $VIM_PLUGINS/* $RT_PLUGINS/ 2>/dev/null
+# # copy plugins
+# RT_PLUGINS=~/.vim/plugins/
+# VIM_PLUGINS=./vim_runtime/plugins
+# mkdir -p $RT_PLUGINS
+# cp $VIM_PLUGINS/* $RT_PLUGINS/
 
 # copy colors
 RT_COLOR=~/.vim/colors/
