@@ -1,3 +1,4 @@
+set rtp +=~/.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neobundle
@@ -89,10 +90,50 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree',  { 'on':  'NERDTreeToggle' }
-Plug 'skywind3000/vim-preview'
-Plug 'ludovicchabant/vim-gutentags'
-" Plug 'skywind3000/gutentags_plus'
+" Plug 'skywind3000/vim-preview'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'ycm-core/YouCompleteMe'
+
+Plug 'junegunn/vim-easy-align'
+Plug 'skywind3000/quickmenu.vim'
+
+
+" c tags
+" Plug 'skywind3000/gutentags_plus'
+Plug 'multilobyte/gtags-cscope'
+
+" C lang
+Plug 'w0rp/ale'
+
+" version control 
+Plug 'mhinz/vim-signify'
+
+" text object : statemanet, word 
+" i. and a. : argument object, can use 'di' or 'ci' in insert mode
+" ii and ai : 'vii' selecttion 'dii'/'cii' delete / replace 
+" if and af : vif / dif /cif 
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-function',  { 'for':['c',  'cpp',  'vim',  'java'] }
+Plug 'sgur/vim-textobj-parameter'
+
+Plug 'tpope/vim-unimpaired'
+
+" function 
+Plug 'Yggdroot/LeaderF'
+
+" http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/
+" project viewer
+Plug 'justinmk/vim-dirvish'
+
+" header / source file change
+Plug 'vim-scripts/a.vim'
+
+" prompt parameters
+Plug 'Shougo/echodoc.vim'
+
+
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -125,5 +166,71 @@ let tlist_qmake_settings = 'qmake;t:SystemVariables'
 
 
 
+"-------------------------------------------------------------------------------
+" ale  " C language syntax checker
+"-------------------------------------------------------------------------------
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+
+let g:ale_sign_error = "\ue009\ue009"
+hi! clear SpellBad
+hi! clear SpellCap
+hi! clear SpellRare
+hi! SpellBad gui=undercurl guisp=red
+hi! SpellCap gui=undercurl guisp=blue
+hi! SpellRare gui=undercurl guisp=magenta
 
 
+"-------------------------------------------------------------------------------
+" mhinz/vim-signify
+"-------------------------------------------------------------------------------
+set signcolumn=yes
+
+"-------------------------------------------------------------------------------
+" ycm
+"-------------------------------------------------------------------------------
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-z>'
+set completeopt=menu,menuone
+noremap <c-z> <NOP>
+let g:ycm_semantic_triggers =  {
+           \ 'c, cpp, python, java, go, erlang, perl': ['re!\w{2}'], 
+           \ 'cs, lua, javascript': ['re!\w{2}'], 
+           \ }
+
+"-------------------------------------------------------------------------------
+" Plug 'Yggdroot/LeaderF' " function list
+" :LeaderfFunction!`
+"-------------------------------------------------------------------------------
+let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_ShortcutB = '<m-n>'
+noremap <c-n> :LeaderfMru<// ignacs-20211120-RM#####-remove->
+noremap <m-p> :LeaderfFunction!<// ignacs-20211120-RM#####-remove->
+noremap <m-n> :LeaderfBuffer<// ignacs-20211120-RM#####-remove->
+noremap <m-m> :LeaderfTag<// ignacs-20211120-RM#####-remove->
+let g:Lf_StlSeparator = { 'left': '',  'right': '',  'font': '' }
+
+let g:Lf_RootMarkers = ['.project',  '.root',  '.svn',  '.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_CacheDirectory = expand('~/.vim/cache')
+let g:Lf_ShowRelativePath = 0
+let g:Lf_HideHelp = 1
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_PreviewResult = {'Function':0,  'BufTag':0}

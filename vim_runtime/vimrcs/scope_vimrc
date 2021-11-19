@@ -24,7 +24,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ GTAGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
-let g:Gtags_Auto_Map = 1
+" let g:Gtags_Auto_Map = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ GTAGS cscope
@@ -33,6 +33,7 @@ let g:GtagsCscope_Auto_Map = 1
 let g:GtagsCscope_Ignore_Case = 1
 let g:GtagsCscope_Keep_Alive = 1
 let g:GtagsCscope_Auto_Load = 1
+let g:GtagsCscope_Auto_Update = 1
 set cscopeprg=gtags-cscope
 set cscopetag
 cs add GTAGS
@@ -94,3 +95,7 @@ function! UpdateGtags(f)
      let dir = fnamemodify(a:f, ':p:h')
      exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+""" end of GTAGS cscope
+""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -201,3 +201,19 @@ endfun
 "
 " replace tesxt1 with text2
 "iabbrev text1 text2
+"
+"-------------------------------------------------------------------------------
+" close window (conflicts with the KDE setting for calling the process manager)
+"-------------------------------------------------------------------------------
+" noremap  <C-Esc>       :close<CR>
+"inoremap  <C-Esc>  <C-C>:close<CR>
+"
+"-------------------------------------------------------------------------------
+" Fast switching between buffers
+" The current buffer will be saved before switching to the next one.
+" Choose :bprevious or :bnext
+"-------------------------------------------------------------------------------
+ noremap  <silent> <s-tab>       :if &modifiable && !&readonly && 
+     \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly && 
+     \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>

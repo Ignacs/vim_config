@@ -1,12 +1,16 @@
-
+" Source a global configuration file if available
+" if filereadable("/etc/vim/vimrc.local")
+"   source /etc/vim/vimrc.local
+" endif
 source ~/.vim/vimrcs/general_vimrc
+source ~/.vim/vimrcs/scope_vimrc
 source ~/.vim/vimrcs/status_line_vimrc
 source ~/.vim/vimrcs/key_mapping_vimrc
-source ~/.vim/vimrcs/plugins_vimrc
 source ~/.vim/vimrcs/visual_mode_vimrc
 source ~/.vim/vimrcs/color_vimrc
 source ~/.vim/vimrcs/file_type_vimrc
-source ~/.vim/vimrcs/scope_vimrc
+
+source ~/.vim/vimrcs/plugins_vimrc
 
 
 
@@ -36,27 +40,7 @@ autocmd! bufwritepost .vimrc source %
 if has("autocmd")
 	autocmd BufEnter * :lchdir %:p:h
 endif
-"
-"-------------------------------------------------------------------------------
-" close window (conflicts with the KDE setting for calling the process manager)
-"-------------------------------------------------------------------------------
-" noremap  <C-Esc>       :close<CR>
-"inoremap  <C-Esc>  <C-C>:close<CR>
 
-" Source a global configuration file if available
-" if filereadable("/etc/vim/vimrc.local")
-"   source /etc/vim/vimrc.local
-" endif
-
-"-------------------------------------------------------------------------------
-" Fast switching between buffers
-" The current buffer will be saved before switching to the next one.
-" Choose :bprevious or :bnext
-"-------------------------------------------------------------------------------
- noremap  <silent> <s-tab>       :if &modifiable && !&readonly && 
-     \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly && 
-     \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 "
 "-------------------------------------------------------------------------------
 " When editing a file, always jump to the last known cursor position.
