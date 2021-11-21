@@ -1,6 +1,11 @@
 set rtp +=~/.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugins - built-in
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source ~/.vim/plugins/gtags-cscope.vim
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neobundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let iCanHazNeoBundle=1
@@ -100,7 +105,7 @@ Plug 'skywind3000/quickmenu.vim'
 
 " c tags
 " Plug 'skywind3000/gutentags_plus'
-Plug 'multilobyte/gtags-cscope'
+" Plug 'multilobyte/gtags-cscope' " vim-plug cannot source it
 
 " C lang
 Plug 'w0rp/ale'
