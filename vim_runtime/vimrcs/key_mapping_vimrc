@@ -1,8 +1,6 @@
-
 "-------------------------------------------------------------------------------
-"  some additional hot keys
+"  Hot keys
 "-------------------------------------------------------------------------------
-
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
@@ -131,31 +129,60 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 "map <F5> :!ctags -R ¡Vc++-kinds=+p ¡Vfields=+iaS ¡Vextra=+q .<CR>
 map <F5> :!ctags -R<CR>
 
+""""""""""""""""""""""""""""""
+" in Insert mode 
+" replace tesxt1 with text2
+" 	iabbrev text1 text2
+"
 " complex :iab <expr> dd strftime("[%e-%b-%Y %H:%M]")
 " " command to insert date and time
-" in Insert mode 
 " 	d+d+(space / enter)
-inoreabbrev com /*<CR><CR>/<Up>
-inoreabbrev <expr> dd strftime("%Y/%m/%d")
-inoreabbrev <expr> tt strftime("%H:%M:%S")
-inoreabbrev <expr> tt strftime("%H:%M:%S")
-" semi-auto add comment  command
-" insert mode : c+c+s+(space / enter)
+""""""""""""""""""""""""""""""
+" :iab <expr> dd strftime("%Y%m%d")
+inoreabbrev <expr> dd strftime("%Y%m%d")
+" inoreabbrev <expr> dd strftime("%Y/%m/%d")
+" :iab <expr> tt strftime("%H:%M:%S")
+inoreabbrev <expr> tt strftime("%H%M%S")
+" :iab <expr> dd strftime("[%e-%b-%Y %H:%M]")
+"
+"
+""" semi-auto add comment  command
+""" insert mode : c+c+s+(space / enter)
+" :iab <expr> cm "// modify, Ignacs Wu,"
+" :iab <expr> cms "// modify start, Ignacs Wu,"
+" :iab <expr> cme "// modify end, Ignacs Wu,"
+"
+" :iab <expr> cf  "// fixed, Ignacs Wu,"
+" :iab <expr> cfs "// fixed start, Ignacs Wu,"
+" :iab <expr> cfe "// fixed end, Ignacs Wu,"
+"
 inoreabbrev <expr> ccl strftime("// ignacs-%Y%m%d-RM#####-topic-")
 inoreabbrev <expr> cc strftime("// ignacs-%Y%m%d-RM#")
+
 " inoreabbrev <expr> cas strftime("// ignacs-%Y%m%d-RM#####-topic")
 " inoreabbrev <expr> cae // add end, Ignacs Wu,
+"
+" :iab <expr> cr "// remove, Ignacs Wu,"
+" :iab <expr> crs "// remove start, Ignacs Wu,"
+" :iab <expr> cre "// remove end, Ignacs Wu,"
 inoreabbrev <expr> cr strftime("// ignacs-%Y%m%d-RM#####-remove-")
 " inoreabbrev <expr> crs "// remove start, Ignacs Wu,"
 " inoreabbrev <expr> cre "// remove end, Ignacs Wu,"
+"
 inoreabbrev <expr> cm strftime("// ignacs-%Y%m%d-RM#####-modify-")
 " inoreabbrev <expr> cms "// modify start, Ignacs Wu,"
 " inoreabbrev <expr> cme "// modify end, Ignacs Wu,"
+"
 inoreabbrev <expr> cf  strftime("// ignacs-%Y%m%d-RM#####-fixed-")
 " inoreabbrev <expr> cfs "// fixed start, Ignacs Wu,"
 " inoreabbrev <expr> cfe "// fixed end, Ignacs Wu,"
-inoreabbrev iff if ()<left>
 
+" :iab <expr> ca "// add, Ignacs Wu,"
+" :iab <expr> cas "// add start, Ignacs Wu,"
+" :iab <expr> cae "// add end, Ignacs Wu,"
+
+inoreabbrev iff if()<left>
+""""""""""""""""""""""""""""""
 " move around tabs. conflict with the original screen top/bottom
 " comment them out if you want the original H/L
 " go to prev tab
@@ -176,31 +203,8 @@ fun! IncludeGuard()
    call append( line("$"), "#endif // for #ifndef " . guard)
 endfun
 
-" " complex :iab <expr> dd strftime("[%e-%b-%Y %H:%M]")
-" " command to insert date and time
-" " in Insert mode : d+d+(space / enter)
-" :iab <expr> dd strftime("%Y/%m/%d")
-" :iab <expr> tt strftime("%H:%M:%S")
-" " semi-auto add comment  command
-" " in Insert mode : c+c+s+(space / enter)
-" :iab <expr> ca "// add, Ignacs Wu,"
-" :iab <expr> cas "// add start, Ignacs Wu,"
-" :iab <expr> cae "// add end, Ignacs Wu,"
-" :iab <expr> cr "// remove, Ignacs Wu,"
-" :iab <expr> crs "// remove start, Ignacs Wu,"
-" :iab <expr> cre "// remove end, Ignacs Wu,"
-" :iab <expr> cm "// modify, Ignacs Wu,"
-" :iab <expr> cms "// modify start, Ignacs Wu,"
-" :iab <expr> cme "// modify end, Ignacs Wu,"
-" :iab <expr> cf  "// fixed, Ignacs Wu,"
-" :iab <expr> cfs "// fixed start, Ignacs Wu,"
-" :iab <expr> cfe "// fixed end, Ignacs Wu,"
-
 " map  <F12> :r! date +\%s<cr>
 " nmap <F12> <Plug>CscopeDBInit
-"
-" replace tesxt1 with text2
-"iabbrev text1 text2
 "
 "-------------------------------------------------------------------------------
 " close window (conflicts with the KDE setting for calling the process manager)

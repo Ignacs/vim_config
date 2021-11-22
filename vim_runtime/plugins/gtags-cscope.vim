@@ -175,7 +175,9 @@ function! s:GtagsCscope()
     " Load gtags-cscope.
     "
     set csprg=gtags-cscope
-    let s:command = "cs add " . gtagsroot . "/GTAGS"
+	
+	" the postfix 'a' means absoulate path
+    let s:command = "cs add " . gtagsroot . "/GTAGS" . ' a'
     let s:option = ''
     if g:GtagsCscope_Ignore_Case == 1
         let s:option = s:option . 'C'

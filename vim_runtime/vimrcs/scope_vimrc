@@ -1,3 +1,5 @@
+"
+set notagrelative
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ cscope
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -36,7 +38,8 @@ let g:GtagsCscope_Auto_Load = 1
 let g:GtagsCscope_Auto_Update = 1
 set cscopeprg=gtags-cscope
 set cscopetag
-cs add GTAGS
+" the postfix 'a' means absoulate path
+cs add GTAGS a
 
 " settings of cscope.
 " I use GNU global instead cscope because global is faster.
@@ -81,7 +84,8 @@ function! FindGtags(f)
      while 1
          let tmp = dir . '/GTAGS'
          if filereadable(tmp)
-             exe 'cs add ' . tmp . ' ' . dir
+			" the postfix 'a' means absoulate path
+             exe 'cs add ' . tmp . ' ' . dir . ' a'
              break
          elseif dir == '/'
              break
@@ -93,7 +97,7 @@ endfunc
   
 function! UpdateGtags(f)
      let dir = fnamemodify(a:f, ':p:h')
-     exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
+     exe 'silent !cd ' . dir . ' && global -ua &> /dev/null &'
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
