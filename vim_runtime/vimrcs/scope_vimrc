@@ -39,7 +39,7 @@ let g:GtagsCscope_Auto_Update = 1
 set cscopeprg=gtags-cscope
 set cscopetag
 " the postfix 'a' means absoulate path
-cs add GTAGS a
+" cs add GTAGS a
 
 " settings of cscope.
 " I use GNU global instead cscope because global is faster.
@@ -89,6 +89,8 @@ function! FindGtags(f)
              break
          elseif dir == '/'
              break
+		 else
+			 exe '!goproj.sh'
          endif
   
          let dir = fnamemodify(dir, ":h")

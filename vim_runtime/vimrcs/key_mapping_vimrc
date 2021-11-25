@@ -1,8 +1,29 @@
+" define leader 
+let mapleader=";"
+
 "-------------------------------------------------------------------------------
 "  Hot keys
 "-------------------------------------------------------------------------------
 " Remap VIM 0 to first non-blank character
 map 0 ^
+
+" copy selected string into clipboard
+vnoremap <Leader>y "+y
+
+" paste system clipboard into selected string
+" "" not working in text-mode vim
+" nmap <Leader>p "+p
+
+" dont save and exit all sub-windows
+nmap <Leader>Q :qa!<CR>
+
+" visit all sub-windows
+" nnoremap nw <C-W><C-W>
+
+" dont conrol indent when paste 
+" nmap <Leader>PP :set paste<CR>
+" conrol indent 
+" nmap <Leader>pp :set nopaste<CR>
 
 "    F2   -  write file without confirmation
 "    F3   -  call file explorer Ex

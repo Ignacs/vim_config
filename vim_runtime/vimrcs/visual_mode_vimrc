@@ -55,3 +55,11 @@ function! CmdLine(str)
     call feedkeys(":" . a:str)
 endfunction
 
+" enable indent guides when startup
+let g:indent_guides_enable_on_vim_startup=1
+" show guide from level-2
+let g:indent_guides_start_level=2
+" guide width 
+let g:indent_guides_guide_size=1
+
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle

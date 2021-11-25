@@ -138,6 +138,9 @@ Plug 'vim-scripts/a.vim'
 " prompt parameters
 Plug 'Shougo/echodoc.vim'
 
+" statusline 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 
 call plug#end()
@@ -225,10 +228,10 @@ let g:ycm_semantic_triggers =  {
 "-------------------------------------------------------------------------------
 let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_ShortcutB = '<m-n>'
-noremap <c-n> :LeaderfMru<// ignacs-20211120-RM#####-remove->
-noremap <m-p> :LeaderfFunction!<// ignacs-20211120-RM#####-remove->
-noremap <m-n> :LeaderfBuffer<// ignacs-20211120-RM#####-remove->
-noremap <m-m> :LeaderfTag<// ignacs-20211120-RM#####-remove->
+noremap <c-n> :LeaderfMru<cr>
+noremap <m-p> :LeaderfFunction!<cr>
+noremap <m-n> :LeaderfBuffer<cr>
+noremap <m-m> :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '',  'right': '',  'font': '' }
 
 let g:Lf_RootMarkers = ['.project',  '.root',  '.svn',  '.git']
@@ -239,3 +242,37 @@ let g:Lf_ShowRelativePath = 0
 let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0,  'BufTag':0}
+
+"-------------------------------------------------------------------------------
+"" @airline
+"-------------------------------------------------------------------------------
+"let g:airline#extensions#tabline#enabled = 1   " enable tabline
+"" fonts
+let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum' " select theme
+let g:airline#extensions#tabline#enabled=1    "Smarter tab line: window / buffer
+"let g:airline#extensions#tabline#left_sep = ' '  "separater
+""let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
+"let g:airline#extensions#tabline#formatter = 'default'  "formater
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.linenr                   = ''
+let g:airline_symbols.maxlinenr                = '' 
+let w:airline_skip_empty_sections              = 1
+let g:airline_section_b                        = '%{fugitive#head()}'
+let g:airline_section_c                        = ''
+let g:airline_section_x                        = '%{&filetype}'
+let g:airline_section_warning                  = ''
+
+let g:airline#extensions#tabline#enabled       = 1
+let g:airline#extensions#tabline#fnamemod      = ':~'
+let g:airline#extensions#tabline#fnamecollapse = 0
+
+let g:airline#extensions#branch#enabled              = 1
+let g:airline#extensions#branch#displayed_head_limit = 10

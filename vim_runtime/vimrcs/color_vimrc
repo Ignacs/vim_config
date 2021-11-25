@@ -8,6 +8,10 @@ set background=dark
 
 " color setting
 colorscheme molokai 
+" colorscheme phd
+" colorscheme solarized
+
+
 " vimdifff use different color setting
 if &diff
     " colorscheme evening
