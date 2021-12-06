@@ -1,4 +1,4 @@
-set rtp +=~/.vim
+set rtp +=~/.vim/plugged,~/.vim/plugged/*/autoload/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins - built-in
@@ -87,9 +87,10 @@ if !filereadable(vim_plug_readme)
 	echo "Installing vim-plug.."
 	echo ""
 	silent !mkdir -p ~/.vim/autoload
-	silent !git clone https://github.com/junegunn/vim-plug ~/.vim/autoload
+	" silent !git clone https://github.com/junegunn/vim-plug ~/.vim/autoload
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	let iCanHazVimPlug=0
-	ehco "Execute :NeoBundleInstall(!) in vim to install plugins"
+	ehco "Execute :PlugInstall(!) in vim to install plugins"
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -111,7 +112,9 @@ Plug 'skywind3000/quickmenu.vim'
 Plug 'w0rp/ale'
 
 " version control 
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
+" Plug 'tpope/vim-fugitive'
+
 
 " text object : statemanet, word 
 " i. and a. : argument object, can use 'di' or 'ci' in insert mode
@@ -139,7 +142,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'Shougo/echodoc.vim'
 
 " statusline 
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
 
 
@@ -254,7 +257,7 @@ let g:airline#extensions#tabline#enabled=1    "Smarter tab line: window / buffer
 "let g:airline#extensions#tabline#left_sep = ' '  "separater
 ""let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
 "let g:airline#extensions#tabline#formatter = 'default'  "formater
-let g:airline_left_sep = ''
+let g:airline_left_sep=''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
@@ -265,7 +268,7 @@ endif
 let g:airline_symbols.linenr                   = ''
 let g:airline_symbols.maxlinenr                = '' 
 let w:airline_skip_empty_sections              = 1
-let g:airline_section_b                        = '%{fugitive#head()}'
+" let g:airline_section_b                        = '%{fugitive#head()}'
 let g:airline_section_c                        = ''
 let g:airline_section_x                        = '%{&filetype}'
 let g:airline_section_warning                  = ''
