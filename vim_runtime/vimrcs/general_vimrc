@@ -8,9 +8,10 @@
 set ai 
 
 " change current working directory automatically
-" set autochdir
+set autochdir
+"
 " if autochdir not work 
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 
 " read open files again when changed outside Vim
 " set autoread                    
