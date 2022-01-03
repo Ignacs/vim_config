@@ -28,9 +28,13 @@ nmap <Leader>Q :qa!<CR>
 "-------------------------------------------------------------------------------
 " function keys
 "-------------------------------------------------------------------------------
-"    - write file without confirmation
+
+"    - Switch paste mode toggle
+" nnoremap <F1> <Esc>:set paste!<C-G>
+map 	<silent> <F1>			:set paste!<CR>
+
 " map   <silent> <F2>        :write<CR>
-map   <silent> <F2>        :set nu! nu?<CR><ESC>:set relativenumber! relativenumber?<CR>
+map   <silent> <F2>        :set nu! nu?<CR><ESC>:set relativenumber! relativenumber?<CR><ESC>:set fdc=0<CR>
 "    F3   -  call file explorer Ex
 " map   <silent> <F3>        :Explore<CR>
 "    F4   -  show tag under curser in the preview window (tagfile must exist!)
