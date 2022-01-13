@@ -1,5 +1,6 @@
 "
 set notagrelative
+set cscopetag
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ cscope
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -19,7 +20,6 @@ if has("cscope")
         cs add $CSCOPE_DB
     endif
     set csverb
-    set cscopetag
     set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
 endif
 " nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
@@ -43,7 +43,7 @@ nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 """ Universal-ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " search tags in current dir or ';' means search in parent folder
-set tags=./.tags;,.tags
+set tags=./tags;,tags
 
 
 
@@ -61,7 +61,6 @@ set tags=./.tags;,.tags
 " let g:GtagsCscope_Auto_Load = 1
 " let g:GtagsCscope_Auto_Update = 1
 set cscopeprg=gtags-cscope
-set cscopetag
 " the postfix 'a' means absoulate path
 " cs add GTAGS a
 
